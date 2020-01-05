@@ -1,0 +1,40 @@
+_format_version: "1.1"
+
+services:
+# - name: my-service
+#   url: https://www.baidu.com
+#   port: 443
+# #   plugins:
+# #   - name: key-auth
+#   routes:
+#   - name: my-route
+#     paths:
+#     - /baidu
+    # methods:
+    # - https
+- name: auth
+  url: http://10.0.75.1:11354  
+  path: /
+  routes:
+  - name: connect
+    regex_priority: 6
+    paths:
+    - /connect/\.*
+    methods: ["POST","GET","OPTIONS"]
+    strip_path: false
+  - name: connecta
+    regex_priority: 5
+    paths:
+    - /connecte/\.*
+    methods: ["POST","GET","OPTIONS"]
+    strip_path: false
+- name: web
+  url: http://10.0.75.1:57969
+  path: /
+  regex_priority: 0
+  routes:
+  - name: everything
+    paths:
+    - /\.*
+    methods: ["GET","POST","DELETE","OPTIONS"]
+    strip_path: false

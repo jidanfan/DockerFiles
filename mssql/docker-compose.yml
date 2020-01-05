@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: ${DOCKER_REGISTRY-}sqlserver
+    restart: always
+    ports:
+      - "32775:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=123qwe!@#
+    volumes:
+      - "E:/dockershare/mssql:/var/opt/mssql/data" 
+    build:
+      context: .
+      dockerfile: Dockerfile
+ 
