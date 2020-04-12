@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  consul:
+    image: consul:latest
+    container_name: mainConsul
+    restart: always
+    ports:
+      - '8300:8300'
+      - '8301:8301'
+      - '8301:8301/udp'
+      - '8500:8500'
+      - '8600:8600'
+      - '8600:8600/udp'
+    # links:
+    #   - kong-database:kong-database
+    # depends_on:
+    #   - kong-migrations
+    networks:
+      - consul-network
+networks:
+  consul-network:
+    driver: bridge
+#   pgconf:
+#     driver: local
+#   pglog:
+#     driver: local
+# docker-compose run kong kong migrations up
