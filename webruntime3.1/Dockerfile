@@ -8,6 +8,8 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 WORKDIR /app
+#设置语言  否则swagger.xml中文会有乱码，也可以再docker-compose中设置
+ENV LANG C.UTF-8
 RUN apt-get update -y && apt-get install -y libgdiplus && apt-get clean && ln -s /usr/lib/libgdiplus.so /usr/lib/gdiplus.dll
 RUN sed -i "s|DEFAULT@SECLEVEL=2|DEFAULT@SECLEVEL=1|g" /etc/ssl/openssl.cnf 
 COPY "ca.crt" "/usr/local/share/ca-certificates"
