@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  appvoyor:
+    image: appveyor:5.0
+    restart: always
+    ports:
+      - '28080:80'
+    # environment:
+    #   - U=root
+    # volumes:
+    #   - 'D:/docker/shared/appveyor/server:/var/opt/appveyor/server'
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile

@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: jenkins.dotnet:5.0
+    restart: always
+    ports:
+      - '18080:8080'
+      - '50000:50000'
+    # environment:
+    #   - U=root
+    volumes:
+      - 'D:/docker/shared/jenkins/jenkins_home:/var/jenkins_home'
+    #   - 'D:/docker/shared/jenkins/docker.sock:/var/run/docker.sock'
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile

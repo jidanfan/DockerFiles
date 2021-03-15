@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  db:
+    image: rancher/rancher:stable
+    restart: always
+    ports:
+      - '8080:80' #host物理直接映射端口为6606
+      - '8443:443'
+    volumes:
+      - 'D:/docker/shared/mysql/data:/var/lib/mysql'
+    build:
+      context: .
+      dockerfile: Dockerfile
