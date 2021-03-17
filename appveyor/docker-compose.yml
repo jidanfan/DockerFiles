@@ -9,7 +9,8 @@ services:
     # environment:
     #   - U=root
     # volumes:
-    #   - 'D:/docker/shared/appveyor/server:/var/opt/appveyor/server'
+    #   - 'D:/docker/shared/appveyor/etc:/etc/opt/appveyor/server'
+    #   - 'D:/docker/shared/appveyor/opt:/var/opt/appveyor/server'
     # build:
     #   context: .
     #   dockerfile: Dockerfile
