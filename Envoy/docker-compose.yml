@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  envoyservice:
+    image: envoyproxy/envoy:latest
+    container_name: envoy
+    restart: always
+    ports:
+      - '9901:9901'
+      - '10000:10000' 
+    volumes:
+      - 'D:/project/git/DockerFiles/Envoy/Envoy:/etc/envoy'
+    # links:
+    #   - kong-database:kong-database
+    # depends_on:
+    #   - kong-migrations
+    # networks:
+    #   - consul-network
+# networks:
+#   consul-network:
+#     driver: bridge
+#   pgconf:
+#     driver: local
+#   pglog:
+#     driver: local
+# docker-compose run kong kong migrations up
